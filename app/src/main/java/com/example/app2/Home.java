@@ -1,5 +1,6 @@
 package com.example.app2;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -61,9 +62,13 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
             }
         });
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, 1, 2);
-        drawer.setDrawerListener(toggle);
+//        @SuppressLint("ResourceType") ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+//                this, drawer, toolbar, 1, 2);
+//        drawer.setDrawerListener(toggle);
+        mAppBarConfiguration = new AppBarConfiguration.Builder(
+                )
+                .setDrawerLayout(drawer)
+                .build();
 //        toggle.syncState();
 
         NavigationView navigationView = findViewById(R.id.nav_view);
