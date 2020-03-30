@@ -1,6 +1,7 @@
 package com.example.app2;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -38,7 +39,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
     DatabaseReference category;
     TextView txtfullName;
 
-
+    FirebaseRecyclerAdapter<Category, MenuViewHolder> adapter;
     RecyclerView recycler_menu;
     RecyclerView.LayoutManager layoutManager;
     @Override
@@ -88,7 +89,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
     }
 
     private void loadMenu() {
-        FirebaseRecyclerAdapter<Category, MenuViewHolder> adapter = new FirebaseRecyclerAdapter<Category, MenuViewHolder>(Category.class, R.layout.menu_item, MenuViewHolder.class, category) {
+        adapter = new FirebaseRecyclerAdapter<Category, MenuViewHolder>(Category.class, R.layout.menu_item, MenuViewHolder.class, category) {
             @Override
             protected void populateViewHolder(MenuViewHolder menuViewHolder, Category category, int i) {
                 menuViewHolder.txtMenuName.setText(category.getName());
@@ -97,7 +98,9 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
                 menuViewHolder.setItemClickListener(new ItemClickListener() {
                     @Override
                     public void onClick(View view, int position, boolean isLongClick) {
-                        Toast.makeText(Home.this, ""+clickItem.getName(), Toast.LENGTH_SHORT).show();
+                        Intent foodlist = new Intent(Home.this, FoodList.class);
+                        foodlist.putExtra("CategoryId", adapter.getRef(position).getKey());
+                        startActivity(foodlist);
                     }
                 });
             }
