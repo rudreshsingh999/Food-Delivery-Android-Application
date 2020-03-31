@@ -41,5 +41,19 @@
         android:layout_marginEnd="163dp"
         android:layout_marginBottom="182dp"
         android:text="SignIn" />
+
+<!--    <info.hoang8f.widget.FButton-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:id="@+id/signIn"-->
+<!--        android:text="Sign In"-->
+<!--        android:textColor="@android:color/white"-->
+<!--        android:layout_marginRight="8dp"-->
+<!--        android:layout_marginLeft="8dp"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:layout_margin="8dp"-->
+<!--        app:cornerRadius="4dp">-->
+
+
 </RelativeLayout>
 
