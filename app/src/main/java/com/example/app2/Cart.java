@@ -1,12 +1,19 @@
 package com.example.app2;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.provider.ContactsContract;
+import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -47,8 +54,57 @@ public class Cart extends AppCompatActivity {
         txtTotalPrice = findViewById(R.id.total);
         btnPlaceOrder = findViewById(R.id.btnPlaceOrder);
 
+        btnPlaceOrder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showAlertDialog();
+            }
+        });
+
         loadListFood();
 
+    }
+
+    private void showAlertDialog() {
+        final AlertDialog.Builder alertDialog = new AlertDialog.Builder(Cart.this);
+        alertDialog.setTitle("One More Step!");
+        alertDialog.setMessage("Enter your Address: ");
+        final EditText edtAddress = new EditText(Cart.this);
+        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.MATCH_PARENT
+        );
+        edtAddress.setLayoutParams(lp);
+        alertDialog.setView(edtAddress);
+        alertDialog.setIcon(R.drawable.ic_attach_money_black_24dp);
+
+        alertDialog.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Request request = new Request(
+                        Common.currentUser.getPhone(),
+                        Common.currentUser.getName(),
+                        edtAddress.getText().toString(),
+                        txtTotalPrice.getText().toString(),
+                        cart
+                );
+
+                requests.child(String.valueOf(System.currentTimeMillis())).setValue(request);
+
+                new Database(getBaseContext()).cleanCart();
+                Toast.makeText(Cart.this, "Order Placed!", Toast.LENGTH_SHORT).show();
+                finish();
+            }
+        });
+
+        alertDialog.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+
+        alertDialog.show();
     }
 
     private void loadListFood() {
