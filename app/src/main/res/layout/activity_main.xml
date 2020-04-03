@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/dark"
     tools:context=".MainActivity">
+
 
     <LinearLayout
         android:orientation="horizontal"
@@ -15,18 +17,30 @@
 
         <Button
             android:id="@+id/btnSignIn"
-            android:layout_width="218dp"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="202dp"
             android:layout_height="wrap_content"
-            android:text="Sign In" />
+            android:fontFamily="sans-serif"
+            android:text="@string/signInButton"
+            android:textColor="#ffffff" />
 
         <Button
             android:id="@+id/btnSignUp"
-            android:layout_width="174dp"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="202dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Sign Up" />
+            android:text="@string/signUpButton"
+            android:textColor="#ffffff" />
 
     </LinearLayout>
 
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="-363dp"
+        app:srcCompat="@drawable/bitesize_logo_white" />
 
 </RelativeLayout>

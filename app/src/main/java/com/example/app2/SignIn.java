@@ -54,11 +54,11 @@ public class SignIn extends AppCompatActivity {
                                 startActivity(homeIntent);
                                 finish();
                             } else {
-                                Toast.makeText(SignIn.this, "Failed", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(SignIn.this, "Incorrect password.", Toast.LENGTH_SHORT).show();
                             }
                         }
                         else {
-                            Toast.makeText(SignIn.this, "User not exist", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(SignIn.this, "You're not registered yet. Sign up!", Toast.LENGTH_SHORT).show();
                         }
                     }
 
