@@ -41,12 +41,12 @@ public class SignUp extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         if(dataSnapshot.child(btnphone.getText().toString()).exists()) {
-                            Toast.makeText(SignUp.this, "Phone Number already registered.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(SignUp.this, "This phone number is already registered.", Toast.LENGTH_SHORT).show();
                         }
                         else {
                             User user = new User(btnname.getText().toString(), btnpassword.getText().toString());
                             customer.child(btnphone.getText().toString()).setValue(user);
-                            Toast.makeText(SignUp.this, "Registered", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(SignUp.this, "You've successfully signed up!", Toast.LENGTH_SHORT).show();
                             finish();
                         }
                     }
