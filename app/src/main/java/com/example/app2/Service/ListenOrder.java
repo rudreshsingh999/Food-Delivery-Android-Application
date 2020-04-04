@@ -1,18 +1,24 @@
 package com.example.app2.Service;
 
 import android.app.Notification;
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.IBinder;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.core.app.NotificationCompat;
 
 import com.example.app2.Common.Common;
+import com.example.app2.MainActivity;
 import com.example.app2.OrderStatus;
 import com.example.app2.Model.Request;
 import com.example.app2.R;
@@ -54,6 +60,7 @@ public class ListenOrder extends Service implements ChildEventListener {
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
 
@@ -62,23 +69,39 @@ public class ListenOrder extends Service implements ChildEventListener {
             showNotification(dataSnapshot.getKey(),request);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     private void showNotification(String key, Request request) {
+
+        NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        String NOTIFICATION_CHANNEL_ID = "channel_id_01";
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationChannel notificationChannel = new NotificationChannel(NOTIFICATION_CHANNEL_ID, "My Notifications", NotificationManager.IMPORTANCE_HIGH);
+
+            // Configure the notification channel.
+            notificationChannel.setDescription("Channel description");
+            notificationChannel.enableLights(true);
+            notificationChannel.setLightColor(Color.BLUE);
+            notificationChannel.setVibrationPattern(new long[]{0, 1000, 500, 1000});
+            notificationChannel.enableVibration(true);
+
+            notificationManager.createNotificationChannel(notificationChannel);
+        }
+
+
         Intent intent = new Intent(getBaseContext(), OrderStatus.class);
         intent.putExtra("userPhone", request.getPhone());
         PendingIntent contentIntent = PendingIntent.getActivity(getBaseContext(), 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+//        Toast.makeText(getBaseContext(),"showNotif",Toast.LENGTH_SHORT).show();
 
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(getBaseContext(), "Order updates");
+        NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this, NOTIFICATION_CHANNEL_ID);
 
-        builder.setAutoCancel(true)
-                .setDefaults(Notification.DEFAULT_ALL)
-                .setTicker(" bitesize")
-                .setContentText("Order #" + key + "was updated to " + Common.convertCodeToStatus(request.getStatus()))
-                .setContentIntent(contentIntent)
-                .setContentInfo("Info")
-                .setSmallIcon(R.mipmap.ic_launcher);
+        notificationBuilder.setAutoCancel(true).setDefaults(Notification.DEFAULT_ALL).setWhen(System.currentTimeMillis()).setSmallIcon(R.mipmap.ic_launcher).setPriority(Notification.PRIORITY_MAX).setContentTitle("Bitesize").setContentText("Order #" + key + "was updated to " + Common.convertCodeToStatus(request.getStatus())).setContentInfo("Info").setContentIntent(contentIntent);
 
-        NotificationManager notificationManager = (NotificationManager) getBaseContext().getSystemService(Context.NOTIFICATION_SERVICE);
-        notificationManager.notify(1,builder.build());
+
+        int mNotificationId = (int) System.currentTimeMillis();
+        notificationManager.notify(mNotificationId, notificationBuilder.build());
+
     }
 
 

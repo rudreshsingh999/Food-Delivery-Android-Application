@@ -88,6 +88,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         //Register service
         Intent service = new Intent(Home.this, ListenOrder.class);
         startService(service);
+//        Toast.makeText(getApplicationContext(),"service started",Toast.LENGTH_SHORT).show();
     }
 
     private void loadMenu() {

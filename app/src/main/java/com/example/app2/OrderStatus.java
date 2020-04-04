@@ -62,5 +62,5 @@ public class OrderStatus extends AppCompatActivity {
         };
         recyclerView.setAdapter(adapter);
     }
-    
+
 }
