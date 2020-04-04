@@ -1,4 +1,6 @@
-package com.example.app2;
+package com.example.app2.Model;
+
+import com.example.app2.Model.Order;
 
 import java.util.List;
 

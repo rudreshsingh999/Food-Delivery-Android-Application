@@ -3,16 +3,15 @@ package com.example.app2;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.google.firebase.analytics.FirebaseAnalytics;
+import com.example.app2.Common.Common;
+import com.example.app2.Model.User;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -54,11 +53,11 @@ public class SignIn extends AppCompatActivity {
                                 startActivity(homeIntent);
                                 finish();
                             } else {
-                                Toast.makeText(SignIn.this, "Failed", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(SignIn.this, "Incorrect password.", Toast.LENGTH_SHORT).show();
                             }
                         }
                         else {
-                            Toast.makeText(SignIn.this, "User not exist", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(SignIn.this, "You're not registered yet. Sign up!", Toast.LENGTH_SHORT).show();
                         }
                     }
 

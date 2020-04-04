@@ -4,12 +4,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.ReceiverCallNotAllowedException;
 import android.os.Bundle;
 
+import com.example.app2.Common.Common;
+import com.example.app2.Model.Request;
+import com.example.app2.ViewHolder.OrderViewHolder;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.Objects;
+
+import static com.example.app2.Common.Common.convertCodeToStatus;
 
 public class OrderStatus extends AppCompatActivity {
 
@@ -32,7 +38,10 @@ public class OrderStatus extends AppCompatActivity {
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
-        loadOrders(Common.currentUser.getPhone());
+        if (getIntent().getExtras() == null)
+            loadOrders(Common.currentUser.getPhone());
+        else
+            loadOrders(Objects.requireNonNull(getIntent()).getStringExtra("userPhone"));
     }
 
     private void loadOrders(String phone) {
@@ -54,12 +63,4 @@ public class OrderStatus extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
     }
 
-    private String convertCodeToStatus(String status) {
-        if(status.equals("0"))
-            return "Placed";
-        else if(status.equals("1"))
-            return "On my Way!";
-        else
-            return "Shipped";
-    }
 }
