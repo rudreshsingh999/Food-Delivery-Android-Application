@@ -1,4 +1,4 @@
-package com.example.app2;
+package com.example.app2.ViewHolder;
 
 
 import android.content.Context;
@@ -13,6 +13,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.amulyakhare.textdrawable.TextDrawable;
+import com.example.app2.Interface.ItemClickListener;
+import com.example.app2.Model.Order;
+import com.example.app2.R;
 
 import java.text.NumberFormat;
 import java.util.ArrayList;

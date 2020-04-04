@@ -4,12 +4,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.ReceiverCallNotAllowedException;
 import android.os.Bundle;
+import android.widget.Toast;
 
+import com.example.app2.Model.Request;
+import com.example.app2.ViewHolder.OrderViewHolder;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.example.app2.Common.*;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import static com.example.app2.Common.Common.currentUser;
 
 public class OrderStatus extends AppCompatActivity {
 
@@ -27,15 +32,21 @@ public class OrderStatus extends AppCompatActivity {
         database = FirebaseDatabase.getInstance();
         requests = database.getReference("Requests");
 
-        recyclerView = findViewById(R.id.listOrders);
+        recyclerView =(RecyclerView) findViewById(R.id.listOrders);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
-        loadOrders(Common.currentUser.getPhone());
+        //If we start OrderStatus from Home Activity
+        //we will not put any extra information, so we just loadOrder by phone number
+        if(getIntent() == null)
+            loadOrders(currentUser.getPhone());
+        else
+            loadOrders(getIntent().getStringExtra("userPhone"));
     }
 
     private void loadOrders(String phone) {
+        Toast.makeText(getApplicationContext(), "Reached loadOrders", Toast.LENGTH_SHORT).show();
         adapter = new FirebaseRecyclerAdapter<Request, OrderViewHolder>(
                 Request.class,
                 R.layout.order_layout,
@@ -49,8 +60,11 @@ public class OrderStatus extends AppCompatActivity {
                 orderViewHolder.txtOrderAddress.setText(request.getAddress());
                 orderViewHolder.txtOrderPhone.setText(request.getPhone());
 
+
             }
         };
+        Toast.makeText(getApplicationContext(),"I'm here", Toast.LENGTH_SHORT).show();
+
         recyclerView.setAdapter(adapter);
     }
 
@@ -58,8 +72,9 @@ public class OrderStatus extends AppCompatActivity {
         if(status.equals("0"))
             return "Placed";
         else if(status.equals("1"))
-            return "On my Way!";
+            return "On my way";
         else
             return "Shipped";
     }
+
 }

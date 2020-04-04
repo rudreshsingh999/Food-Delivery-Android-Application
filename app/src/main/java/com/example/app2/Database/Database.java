@@ -1,10 +1,11 @@
-package com.example.app2;
+package com.example.app2.Database;
 
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteQueryBuilder;
 
+import com.example.app2.Model.Order;
 import com.readystatesoftware.sqliteasset.SQLiteAssetHelper;
 
 import java.util.ArrayList;
@@ -15,12 +16,12 @@ public class Database extends SQLiteAssetHelper {
     private static final String DB_NAME = "EatItDB.db";
     private static final int DB_VER = 1;
 
-    Database(Context context) {
+    public Database(Context context) {
         super(context, DB_NAME, null, DB_VER);
     }
 
 
-    List<Order> getCarts() {
+    public List<Order> getCarts() {
         SQLiteDatabase db = getReadableDatabase();
         SQLiteQueryBuilder qb = new SQLiteQueryBuilder();
 
@@ -43,7 +44,7 @@ public class Database extends SQLiteAssetHelper {
         return result;
     }
 
-    void addToCart(Order order) {
+    public void addToCart(Order order) {
         SQLiteDatabase db = getReadableDatabase();
         String query = String.format("INSERT INTO OrderDetail(ProductId, ProductName, Quantity, Price, Discount) VALUES ('%s', '%s','%s','%s','%s');",
                 order.getProductId(),

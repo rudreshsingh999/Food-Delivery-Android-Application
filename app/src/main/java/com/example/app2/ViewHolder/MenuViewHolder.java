@@ -1,12 +1,14 @@
-package com.example.app2;
+package com.example.app2.ViewHolder;
 
-import android.media.Image;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.app2.Interface.ItemClickListener;
+import com.example.app2.R;
 
 public class MenuViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 

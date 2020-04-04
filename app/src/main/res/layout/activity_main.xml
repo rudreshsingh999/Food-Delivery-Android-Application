@@ -8,6 +8,7 @@
     tools:context=".MainActivity">
 
 
+
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
@@ -15,23 +16,43 @@
         android:layout_alignParentBottom="true"
         android:layout_height="wrap_content">
 
-        <Button
-            android:id="@+id/btnSignIn"
-            style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="202dp"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif"
-            android:text="@string/signInButton"
-            android:textColor="#ffffff" />
+<!--        <info.hoang8f.widget.FButton-->
+<!--            android:id="@+id/btnSignUp"-->
+<!--            android:layout_width="202dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Sign Up"-->
+<!--            android:textColor="@android:color/white"-->
+<!--            android:layout_weight="1"-->
+<!--            android:layout_margin="8dp"-->
+<!--            app:shadowColor="@android:color/black"-->
+<!--            app:shadowEnabled="true"-->
+<!--            app:shadowHeight="5dp"-->
+<!--            app:cornerRadius="4dp"-->
+<!--            />-->
 
         <Button
             android:id="@+id/btnSignUp"
             style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="202dp"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:fontFamily="@font/montserrat"
+            android:shadowColor="@android:color/black"
             android:text="@string/signUpButton"
-            android:textColor="#ffffff" />
+            android:textColor="@android:color/white"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/btnSignIn"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/montserrat"
+            android:shadowColor="@android:color/black"
+            android:text="@string/signInButton"
+            android:textColor="@android:color/white"
+            android:textSize="18sp" />
 
     </LinearLayout>
 
@@ -40,7 +61,27 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="-363dp"
+        android:layout_marginTop="2dp"
+        android:adjustViewBounds="true"
+        android:cropToPadding="true"
+        android:scaleType="centerCrop"
         app:srcCompat="@drawable/bitesize_logo_white" />
+
+    <TextView
+        android:id="@+id/slogan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@id/imageView3"
+        android:layout_alignEnd="@id/imageView3"
+
+        android:layout_marginTop="275dp"
+        android:layout_marginBottom="1dp"
+        android:fadingEdge="horizontal|vertical"
+        android:fontFamily="@font/montserrat"
+        android:gravity="center"
+        android:text="@string/slogan2"
+        android:textColor="@android:color/white"
+        android:textSize="18sp" />
+
 
 </RelativeLayout>
