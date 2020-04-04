@@ -11,7 +11,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton;
-import com.example.app2.Database.Database;
 import com.example.app2.Model.Food;
 import com.example.app2.Model.Order;
 import com.google.android.material.appbar.CollapsingToolbarLayout;

@@ -8,7 +8,6 @@ import android.view.Menu;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.app2.Common.Common;
 import com.example.app2.Interface.ItemClickListener;
 import com.example.app2.Model.Category;
 import com.example.app2.Service.ListenOrder;

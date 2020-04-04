@@ -1,4 +1,4 @@
-package com.example.app2.Common;
+package com.example.app2;
 import com.example.app2.Model.User;
 
 public class Common {

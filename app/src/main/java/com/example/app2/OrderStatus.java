@@ -10,11 +10,10 @@ import android.widget.Toast;
 import com.example.app2.Model.Request;
 import com.example.app2.ViewHolder.OrderViewHolder;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
-import com.example.app2.Common.*;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import static com.example.app2.Common.Common.currentUser;
+import static com.example.app2.Common.currentUser;
 
 public class OrderStatus extends AppCompatActivity {
 
