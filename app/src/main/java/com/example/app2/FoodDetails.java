@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,6 +36,10 @@ public class FoodDetails extends AppCompatActivity {
     Food currentFood;
     FirebaseDatabase database;
     DatabaseReference foods;
+
+    RadioGroup radioFoodSize;
+    RadioButton radioFoodButton;
+    String price = "1000";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,14 +51,42 @@ public class FoodDetails extends AppCompatActivity {
         elegantNumberButton = findViewById(R.id.number_button);
         btnCart = findViewById(R.id.btnCart);
 
+
+        radioFoodSize = findViewById(R.id.food_size);
+
+        radioFoodSize.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                radioFoodButton = findViewById(checkedId);
+                if(radioFoodButton.getText().equals("Small"))
+                    price = currentFood.getPrice();
+                else if(radioFoodButton.getText().equals("Medium"))
+                    price = String.valueOf(Integer.parseInt(currentFood.getPrice())*2);
+                else
+                    price = String.valueOf(Integer.parseInt(currentFood.getPrice())*3);
+
+                getDetailFood(foodId);
+            }
+        });
+
         btnCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+//                new Database(getBaseContext()).cleanCart();
+//                int selectedId = radioFoodSize.getCheckedRadioButtonId();
+//                radioFoodButton = findViewById(selectedId);
+//                System.out.println(radioFoodButton.getText());
+//                if(radioFoodButton.getText().equals("Small"))
+//                    price = currentFood.getPrice();
+//                else if(radioFoodButton.getText().equals("Medium"))
+//                    price = String.valueOf(Integer.parseInt(currentFood.getPrice())*2);
+//                else
+//                    price = String.valueOf(Integer.parseInt(currentFood.getPrice())*3);
                 new Database(getBaseContext()).addToCart(new Order(
                         foodId,
                         currentFood.getName(),
                         elegantNumberButton.getNumber(),
-                        currentFood.getPrice(),
+                        price,
                         currentFood.getDiscount()
                 ));
                 Toast.makeText(FoodDetails.this, "Added to Cart", Toast.LENGTH_SHORT).show();
@@ -83,7 +117,7 @@ public class FoodDetails extends AppCompatActivity {
                 currentFood = dataSnapshot.getValue(Food.class);
                 Picasso.with(getBaseContext()).load(currentFood.getImage()).into(food_image);
                 collapsingToolbarLayout.setTitle(currentFood.getName());
-                food_price.setText(currentFood.getPrice());
+                food_price.setText(price);
                 food_name.setText(currentFood.getName());
                 food_description.setText(currentFood.getDescription());
             }

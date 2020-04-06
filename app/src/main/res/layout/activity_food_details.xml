@@ -145,6 +145,45 @@
 
                     </com.cepheuen.elegantnumberbutton.view.ElegantNumberButton>
 
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <RadioGroup
+                            android:id = "@+id/food_size"
+                            android:orientation="horizontal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <RadioButton
+                                android:id = "@+id/radio_small"
+                                android:text = "Small"
+                                android:checked="true"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+
+                            </RadioButton>
+
+                            <RadioButton
+                                android:id = "@+id/radio_medium"
+                                android:text = "Medium"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+
+                            </RadioButton>
+
+                            <RadioButton
+                                android:id = "@+id/radio_large"
+                                android:text = "Large"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+
+                            </RadioButton>
+
+                        </RadioGroup>
+
+                    </LinearLayout>
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
@@ -168,6 +207,7 @@
                     android:layout_height="match_parent">
 
                 </TextView>
+
             </androidx.cardview.widget.CardView>
         </LinearLayout>
 
