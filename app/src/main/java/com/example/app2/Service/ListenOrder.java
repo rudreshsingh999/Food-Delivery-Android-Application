@@ -27,7 +27,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
+import java.util.Random;
 public class ListenOrder extends Service implements ChildEventListener {
 
     FirebaseDatabase db;
@@ -95,8 +95,7 @@ public class ListenOrder extends Service implements ChildEventListener {
 //        Toast.makeText(getBaseContext(),"showNotif",Toast.LENGTH_SHORT).show();
 
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this, NOTIFICATION_CHANNEL_ID);
-
-        notificationBuilder.setAutoCancel(true).setDefaults(Notification.DEFAULT_ALL).setWhen(System.currentTimeMillis()).setSmallIcon(R.mipmap.ic_launcher).setPriority(Notification.PRIORITY_MAX).setContentTitle("Bitesize").setContentText("Order #" + key + "was updated to " + Common.convertCodeToStatus(request.getStatus())).setContentInfo("Info").setContentIntent(contentIntent);
+        notificationBuilder.setAutoCancel(true).setDefaults(Notification.DEFAULT_ALL).setWhen(System.currentTimeMillis()).setSmallIcon(R.mipmap.ic_launcher).setPriority(Notification.PRIORITY_MAX).setContentTitle("Bitesize").setContentText("Order #" + key + " was updated to " + Common.convertCodeToStatus(request.getStatus())).setContentInfo("Info").setContentIntent(contentIntent);
 
 
         int mNotificationId = (int) System.currentTimeMillis();
