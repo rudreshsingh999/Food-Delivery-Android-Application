@@ -145,7 +145,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
 
         }
         else if (id == R.id.nav_orders) {
-            Toast.makeText(getApplicationContext(),"in home",Toast.LENGTH_SHORT);
+//            Toast.makeText(getApplicationContext(),"in home",Toast.LENGTH_SHORT);
             Intent orderIntent = new Intent(Home.this, OrderStatus.class);
             startActivity(orderIntent);
         }
