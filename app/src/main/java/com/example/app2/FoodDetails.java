@@ -17,6 +17,7 @@ import com.example.app2.Database.Database;
 import com.example.app2.Model.Food;
 import com.example.app2.Model.Order;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -98,7 +99,7 @@ public class FoodDetails extends AppCompatActivity {
         food_price = findViewById(R.id.food_price);
 
         collapsingToolbarLayout = findViewById(R.id.collapsing);
-        collapsingToolbarLayout.setExpandedTitleTextAppearance(R.style.ExpandedAppBAr);
+        collapsingToolbarLayout.setExpandedTitleTextAppearance(R.style.ExpandedAppBar);
         collapsingToolbarLayout.setCollapsedTitleTextAppearance(R.style.CollapsedAppBar);
 
         if(getIntent() != null) {

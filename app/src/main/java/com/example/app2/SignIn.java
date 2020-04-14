@@ -31,6 +31,7 @@ public class SignIn extends AppCompatActivity {
         edtphone = (EditText) findViewById(R.id.edtphone);
         edtpassword = (EditText) findViewById(R.id.edtpassword);
         signIn = (Button) findViewById(R.id.signIn);
+        Toast.makeText(getApplicationContext(),"here",Toast.LENGTH_SHORT);
 
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         final DatabaseReference customer = database.getReference("User");
@@ -38,6 +39,7 @@ public class SignIn extends AppCompatActivity {
         signIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(getApplicationContext(),"here",Toast.LENGTH_SHORT);
 
 //                ProgressDialog mDialog = new ProgressDialog(SignIn.this);
 //                mDialog.sentMessage("Please wait...");

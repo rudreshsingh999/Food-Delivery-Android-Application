@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
+
     app:cardElevation="4dp">
 
     <LinearLayout
@@ -13,6 +14,7 @@
         android:orientation="horizontal"
         android:layout_gravity="center_vertical"
         android:layout_width="match_parent"
+
         android:layout_height="wrap_content">
         
         <LinearLayout
@@ -28,6 +30,8 @@
                 android:textAllCaps="true"
                 android:textStyle="bold"
                 android:text="Food 01"
+                android:fontFamily="@font/arima_madurai"
+                android:textSize="16sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
 
@@ -35,13 +39,15 @@
 
             <TextView
                 android:id="@+id/cart_item_Price"
-                android:layout_marginLeft="10dp"
-                android:gravity="center_vertical|start"
-                android:textAllCaps="true"
-                android:textStyle="italic"
-                android:text="100,000"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:fontFamily="@font/arima_madurai"
+                android:gravity="center_vertical|start"
+                android:text="100,000"
+                android:textAllCaps="true"
+                android:textSize="16sp"
+                android:textStyle="italic">
 
             </TextView>
 
