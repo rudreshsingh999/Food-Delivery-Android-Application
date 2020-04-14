@@ -181,7 +181,8 @@ public class Cart extends AppCompatActivity implements GoogleApiClient.Connectio
         View order_address = inflater.inflate(R.layout.order_address, null);
         final MaterialEditText edtAddress = order_address.findViewById(R.id.edtaddress);
         alertDialog.setView(order_address);
-        alertDialog.setIcon(R.drawable.ic_attach_money_black_24dp);
+        alertDialog.setIcon(R.drawable.shopping_cart);
+//        alertDialog.setIcon(R.drawable.ic_attach_money_black_24dp);
 
 
         final double localLat = 25.5529486;

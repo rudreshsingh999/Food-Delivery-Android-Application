@@ -1,7 +1,10 @@
 package com.example.app2;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
@@ -76,6 +79,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         View headerView = navigationView.getHeaderView(0);
         txtfullName = headerView.findViewById(R.id.txtfullName);
         txtfullName.setText(Common.currentUser.getName());
+        txtfullName.setTextSize(20);
 
 
         recycler_menu = (RecyclerView) findViewById(R.id.recycler_menu);
@@ -129,6 +133,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.home, menu);
+
         return true;
     }
 

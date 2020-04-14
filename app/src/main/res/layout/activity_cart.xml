@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    tools:context=".Cart">
+    tools:context=".Cart"
+    android:background="@drawable/dark">
 
 
     <androidx.recyclerview.widget.RecyclerView
@@ -18,7 +19,7 @@
 
     <androidx.cardview.widget.CardView
         android:layout_alignParentBottom="true"
-        app:cardBackgroundColor="@color/colorPrimary"
+        app:cardBackgroundColor="#A5141C0A"
         android:layout_width="match_parent"
         android:layout_height="100dp">
         
@@ -58,6 +59,8 @@
                     android:id="@+id/btnPlaceOrder"
                     android:text="@string/place_order"
                     android:textColor="@android:color/white"
+                    android:background="@android:color/holo_green_dark"
+                    android:fontFamily="@font/arima_madurai"
                     android:layout_marginRight="8dp"
                     android:layout_marginLeft="8dp"
                     android:layout_alignParentBottom="true"
