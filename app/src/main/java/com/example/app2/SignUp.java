@@ -18,7 +18,7 @@ import com.rengwuxian.materialedittext.MaterialEditText;
 
 public class SignUp extends AppCompatActivity {
 
-    MaterialEditText btnname, btnpassword, btnphone;
+    MaterialEditText btnname, btnpassword, btnphone, btnmail;
     Button signup;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +28,7 @@ public class SignUp extends AppCompatActivity {
         btnname = (MaterialEditText) findViewById(R.id.edtname);
         btnpassword = (MaterialEditText) findViewById(R.id.edtpassword);
         btnphone = (MaterialEditText) findViewById(R.id.edtphone);
-
+        btnmail = (MaterialEditText) findViewById(R.id.edtmail);
         signup = (Button) findViewById(R.id.signUp);
 
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -45,7 +45,7 @@ public class SignUp extends AppCompatActivity {
                             Toast.makeText(SignUp.this, "This phone number is already registered.", Toast.LENGTH_SHORT).show();
                         }
                         else {
-                            User user = new User(btnname.getText().toString(), btnpassword.getText().toString());
+                            User user = new User(btnname.getText().toString(), btnpassword.getText().toString(), btnmail.getText().toString());
                             customer.child(btnphone.getText().toString()).setValue(user);
                             Toast.makeText(SignUp.this, "You've successfully signed up!", Toast.LENGTH_SHORT).show();
                             finish();

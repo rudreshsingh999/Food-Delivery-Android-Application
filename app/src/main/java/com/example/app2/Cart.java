@@ -253,11 +253,11 @@ public class Cart extends AppCompatActivity implements GoogleApiClient.Connectio
         adapter = new CartAdapter(cart, this);
         recyclerView.setAdapter(adapter);
 
-        int total = 0;
+        double total = 0;
         for(Order order:cart)
-            total += (int)((Integer.parseInt(order.getPrice())) * (Integer.parseInt(order.getQuantity())));
+            total += ((Double.parseDouble(order.getPrice())) * (Double.parseDouble(order.getQuantity())));
 
-        Locale locale = new Locale("en", "US");
+        Locale locale = new Locale("en", "IN");
         NumberFormat fmt = NumberFormat.getCurrencyInstance(locale);
 
         txtTotalPrice.setText(fmt.format(total));

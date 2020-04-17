@@ -5,7 +5,7 @@ public class User {
     private String Password;
     private String Phone;
     private String IsStaff;
-
+    private String Mail;
     public User() {
 
     }
@@ -18,10 +18,19 @@ public class User {
         IsStaff = isStaff;
     }
 
-    public User(String name, String password) {
+    public User(String name, String password, String mail) {
         Name = name;
         Password = password;
+        Mail = mail;
         IsStaff = "false";
+    }
+
+    public String getMail() {
+        return Mail;
+    }
+
+    public void setMail(String mail) {
+        Mail = mail;
     }
 
     public String getPhone() {

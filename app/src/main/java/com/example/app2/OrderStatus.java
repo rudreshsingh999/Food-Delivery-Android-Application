@@ -13,6 +13,8 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.NumberFormat;
+import java.util.Locale;
 import java.util.Objects;
 
 import static com.example.app2.Common.Common.convertCodeToStatus;
@@ -57,6 +59,11 @@ public class OrderStatus extends AppCompatActivity {
                 orderViewHolder.txtOrderStatus.setText(convertCodeToStatus(request.getStatus()));
                 orderViewHolder.txtOrderAddress.setText(request.getAddress());
                 orderViewHolder.txtOrderPhone.setText(request.getPhone());
+                double d = Double.parseDouble(request.getDistance());
+                double price = (d-10)*5.0;
+                Locale locale = new Locale("en", "IN");
+                NumberFormat fmt = NumberFormat.getCurrencyInstance(locale);
+                orderViewHolder.txtOrderDistance.setText(request.getTotal() + " + " + fmt.format(price));
             }
         };
         recyclerView.setAdapter(adapter);

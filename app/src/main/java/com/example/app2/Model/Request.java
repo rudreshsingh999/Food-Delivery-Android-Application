@@ -12,6 +12,7 @@ public class Request {
     private List<Order> foods;
     private String status;
     private String distance;
+
     public Request() {
     }
 

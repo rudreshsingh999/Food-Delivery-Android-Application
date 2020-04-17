@@ -32,7 +32,7 @@
             app:met_maxCharacters="10"
             app:met_primaryColor="@android:color/white"
             app:met_singleLineEllipsis="true"
-            android:textSize="34sp"></com.rengwuxian.materialedittext.MaterialEditText>
+            android:textSize="30sp"></com.rengwuxian.materialedittext.MaterialEditText>
 
         <com.rengwuxian.materialedittext.MaterialEditText
             android:id="@+id/edtpassword"
@@ -50,7 +50,7 @@
             app:met_maxCharacters="10"
             app:met_primaryColor="@android:color/white"
             app:met_singleLineEllipsis="true"
-            android:textSize="34sp"></com.rengwuxian.materialedittext.MaterialEditText>
+            android:textSize="30sp"></com.rengwuxian.materialedittext.MaterialEditText>
 
         <com.rengwuxian.materialedittext.MaterialEditText
             android:id="@+id/edtname"
@@ -68,8 +68,25 @@
             app:met_maxCharacters="10"
             app:met_primaryColor="@android:color/white"
             app:met_singleLineEllipsis="true"
-            android:textSize="34sp"></com.rengwuxian.materialedittext.MaterialEditText>
+            android:textSize="30sp"></com.rengwuxian.materialedittext.MaterialEditText>
 
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/edtmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat"
+            android:gravity="center"
+            android:hint="Email"
+            android:text="KimBrown@gmail.com"
+            android:inputType="textEmailAddress"
+            android:textColor="@android:color/white"
+            android:textColorHint="@android:color/white"
+            app:met_baseColor="@android:color/white"
+            app:met_floatingLabel="highlight"
+            app:met_maxCharacters="10"
+            app:met_primaryColor="@android:color/white"
+            app:met_singleLineEllipsis="true"
+            android:textSize="30sp"></com.rengwuxian.materialedittext.MaterialEditText>
 
 <!--        <com.rengwuxian.materialedittext.MaterialEditText-->
 <!--            android:id="@+id/edtname"-->

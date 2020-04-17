@@ -11,7 +11,7 @@ import com.example.app2.R;
 
 public class OrderViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-    public TextView txtOrderId, txtOrderStatus, txtOrderPhone, txtOrderAddress;
+    public TextView txtOrderId, txtOrderStatus, txtOrderPhone, txtOrderAddress, txtOrderDistance;
     private ItemClickListener itemClickListener;
     public OrderViewHolder(@NonNull View itemView) {
         super(itemView);
@@ -20,7 +20,7 @@ public class OrderViewHolder extends RecyclerView.ViewHolder implements View.OnC
         txtOrderId =(TextView) itemView.findViewById(R.id.order_id);
         txtOrderPhone =(TextView) itemView.findViewById(R.id.order_phone);
         txtOrderStatus =(TextView) itemView.findViewById(R.id.order_status);
-
+        txtOrderDistance = (TextView)itemView.findViewById(R.id.order_dist);
         itemView.setOnClickListener(this);
     }
 
