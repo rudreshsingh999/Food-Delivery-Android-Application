@@ -94,8 +94,12 @@ public class ListenOrder extends Service implements ChildEventListener {
         PendingIntent contentIntent = PendingIntent.getActivity(getBaseContext(), 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 //        Toast.makeText(getBaseContext(),"showNotif",Toast.LENGTH_SHORT).show();
 
+        String r = "Order #" + key + " was updated to " + Common.convertCodeToStatus(request.getStatus());
+        if(Common.currentUser.getPhone().equals("7080102453")) {
+            r = "You have recieved a discount of 10% for being a regular customer";
+        }
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this, NOTIFICATION_CHANNEL_ID);
-        notificationBuilder.setAutoCancel(true).setDefaults(Notification.DEFAULT_ALL).setWhen(System.currentTimeMillis()).setSmallIcon(R.mipmap.ic_launcher).setPriority(Notification.PRIORITY_MAX).setContentTitle("Bitesize").setContentText("Order #" + key + " was updated to " + Common.convertCodeToStatus(request.getStatus())).setContentInfo("Info").setContentIntent(contentIntent);
+        notificationBuilder.setAutoCancel(true).setDefaults(Notification.DEFAULT_ALL).setWhen(System.currentTimeMillis()).setSmallIcon(R.mipmap.ic_launcher).setPriority(Notification.PRIORITY_MAX).setContentTitle("Bitesize").setContentText(r).setContentInfo("Info").setContentIntent(contentIntent);
 
 
         int mNotificationId = (int) System.currentTimeMillis();
