@@ -4,10 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/dark"
+    android:background="@drawable/image_4"
     tools:context=".MainActivity">
-
-
 
     <LinearLayout
         android:orientation="horizontal"
@@ -16,20 +14,6 @@
         android:layout_alignParentBottom="true"
         android:layout_height="wrap_content">
 
-<!--        <info.hoang8f.widget.FButton-->
-<!--            android:id="@+id/btnSignUp"-->
-<!--            android:layout_width="202dp"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="Sign Up"-->
-<!--            android:textColor="@android:color/white"-->
-<!--            android:layout_weight="1"-->
-<!--            android:layout_margin="8dp"-->
-<!--            app:shadowColor="@android:color/black"-->
-<!--            app:shadowEnabled="true"-->
-<!--            app:shadowHeight="5dp"-->
-<!--            app:cornerRadius="4dp"-->
-<!--            />-->
-
         <Button
             android:id="@+id/btnSignUp"
             style="?android:attr/buttonBarButtonStyle"
@@ -37,9 +21,13 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:fontFamily="@font/montserrat"
-            android:shadowColor="@android:color/black"
-            android:background="@android:color/holo_orange_dark"
+            android:layout_margin="5dp"
+            android:drawableLeft="@drawable/sign_up_foreground"
+            android:background="@drawable/button_round"
+            android:shadowColor="@android:color/background_dark"
             android:text="@string/signUpButton"
+            android:paddingLeft="36dp"
+            android:textAlignment="textStart"
             android:textColor="@android:color/white"
             android:textSize="18sp" />
 
@@ -50,9 +38,12 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:fontFamily="@font/montserrat"
-            android:shadowColor="@android:color/black"
-            android:background="#9E5104"
+            android:layout_margin="5dp"
+            android:background="@drawable/button_round"
+            android:drawableLeft="@drawable/sign_in_foreground"
             android:text="@string/signInButton"
+            android:textAlignment="textStart"
+            android:paddingLeft="40dp"
             android:textColor="@android:color/white"
             android:textSize="18sp" />
 
@@ -63,7 +54,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="3dp"
         android:adjustViewBounds="true"
         android:cropToPadding="true"
         android:scaleType="centerCrop"
@@ -76,12 +67,13 @@
         android:layout_alignStart="@id/imageView3"
         android:layout_alignEnd="@id/imageView3"
 
-        android:layout_marginTop="275dp"
+        android:layout_marginTop="300dp"
         android:layout_marginBottom="1dp"
         android:fadingEdge="horizontal|vertical"
         android:fontFamily="@font/montserrat"
         android:gravity="center"
         android:text="@string/slogan2"
+        android:textStyle="italic"
         android:textColor="@android:color/white"
         android:textSize="18sp" />
 

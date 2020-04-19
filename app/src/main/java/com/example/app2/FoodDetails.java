@@ -62,9 +62,9 @@ public class FoodDetails extends AppCompatActivity {
                 if(radioFoodButton.getText().equals("Small"))
                     price = currentFood.getPrice();
                 else if(radioFoodButton.getText().equals("Medium"))
-                    price = String.valueOf(Double.parseDouble(currentFood.getPrice())*1.2);
-                else
                     price = String.valueOf(Double.parseDouble(currentFood.getPrice())*1.5);
+                else
+                    price = String.valueOf(Double.parseDouble(currentFood.getPrice())*2);
 
                 getDetailFood(foodId);
             }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="@drawable/dark"
+    android:background="@drawable/image_blr_1"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -17,58 +17,43 @@
         android:layout_height="wrap_content">
 
         <com.rengwuxian.materialedittext.MaterialEditText
-            android:id="@+id/edtphone"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/montserrat"
-            android:gravity="center"
-            android:hint="Phone Number"
-            android:text="9887112234"
-            android:inputType="phone"
-            android:textColor="@android:color/white"
-            android:textColorHint="@android:color/white"
-            app:met_baseColor="@android:color/white"
-            app:met_floatingLabel="highlight"
-            app:met_maxCharacters="10"
-            app:met_primaryColor="@android:color/white"
-            app:met_singleLineEllipsis="true"
-            android:textSize="30sp"></com.rengwuxian.materialedittext.MaterialEditText>
-
-        <com.rengwuxian.materialedittext.MaterialEditText
-            android:id="@+id/edtpassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/montserrat"
-            android:gravity="center"
-            android:hint="Password"
-            android:text="1234"
-            android:inputType="textPassword"
-            android:textColor="@android:color/white"
-            android:textColorHint="@android:color/white"
-            app:met_baseColor="@android:color/white"
-            app:met_floatingLabel="highlight"
-            app:met_maxCharacters="10"
-            app:met_primaryColor="@android:color/white"
-            app:met_singleLineEllipsis="true"
-            android:textSize="30sp"></com.rengwuxian.materialedittext.MaterialEditText>
-
-        <com.rengwuxian.materialedittext.MaterialEditText
             android:id="@+id/edtname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat"
             android:gravity="center"
-            android:hint="Name"
+            android:hint="NAME"
             android:text="Kim Brown"
             android:inputType="textPersonName"
             android:textColor="@android:color/white"
             android:textColorHint="@android:color/white"
             app:met_baseColor="@android:color/white"
+            app:met_textColorHint="@android:color/white"
+            android:textCursorDrawable="@android:color/white"
+            app:met_floatingLabel="highlight"
+            app:met_primaryColor="@android:color/white"
+            app:met_singleLineEllipsis="true"
+            android:textSize="25sp"></com.rengwuxian.materialedittext.MaterialEditText>
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/edtphone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat"
+            android:gravity="center"
+            android:hint="PHONE NUMBER"
+            android:text="9887112234"
+            android:inputType="phone"
+            android:textColor="@android:color/white"
+            android:textColorHint="@android:color/white"
+            app:met_baseColor="@android:color/white"
+            app:met_textColorHint="@android:color/white"
+            android:textCursorDrawable="@android:color/white"
             app:met_floatingLabel="highlight"
             app:met_maxCharacters="10"
             app:met_primaryColor="@android:color/white"
             app:met_singleLineEllipsis="true"
-            android:textSize="30sp"></com.rengwuxian.materialedittext.MaterialEditText>
+            android:textSize="25sp"></com.rengwuxian.materialedittext.MaterialEditText>
 
         <com.rengwuxian.materialedittext.MaterialEditText
             android:id="@+id/edtmail"
@@ -76,25 +61,39 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat"
             android:gravity="center"
-            android:hint="Email"
+            android:hint="EMAIL"
             android:text="KimBrown@gmail.com"
             android:inputType="textEmailAddress"
             android:textColor="@android:color/white"
             android:textColorHint="@android:color/white"
             app:met_baseColor="@android:color/white"
+            app:met_textColorHint="@android:color/white"
+            android:textCursorDrawable="@android:color/white"
+            app:met_floatingLabel="highlight"
+            app:met_primaryColor="@android:color/white"
+            app:met_singleLineEllipsis="true"
+            android:textSize="25sp"></com.rengwuxian.materialedittext.MaterialEditText>
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/edtpassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat"
+            android:gravity="center"
+            android:hint="PASSWORD"
+            android:text="1234"
+            android:inputType="textPassword"
+            android:textColor="@android:color/white"
+            android:textColorHint="@android:color/white"
+            app:met_baseColor="@android:color/white"
+            app:met_textColorHint="@android:color/white"
+            android:textCursorDrawable="@android:color/white"
             app:met_floatingLabel="highlight"
             app:met_maxCharacters="10"
             app:met_primaryColor="@android:color/white"
             app:met_singleLineEllipsis="true"
-            android:textSize="30sp"></com.rengwuxian.materialedittext.MaterialEditText>
+            android:textSize="25sp"></com.rengwuxian.materialedittext.MaterialEditText>
 
-<!--        <com.rengwuxian.materialedittext.MaterialEditText-->
-<!--            android:id="@+id/edtname"-->
-<!--            android:hint="Name"-->
-<!--            android:inputType="textPersonName"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content">-->
-<!--        </com.rengwuxian.materialedittext.MaterialEditText>-->
     </LinearLayout>
 
     <Button
@@ -110,7 +109,7 @@
         android:layout_marginBottom="8dp"
         android:fontFamily="@font/montserrat"
         android:shadowColor="@android:color/black"
-        android:background="@android:color/holo_orange_dark"
+        android:background="@drawable/button_round"
         android:text="Sign Up"
         android:textColor="@android:color/white"
         />
