@@ -24,6 +24,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.core.view.GravityCompat;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -64,14 +65,16 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
             }
         });
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
-//        @SuppressLint("ResourceType") ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-//                this, drawer, toolbar, 1, 2);
-//        drawer.setDrawerListener(toggle);
+
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.Open, R.string.Close);
+        drawer.setDrawerListener(toggle);
+
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 )
                 .setDrawerLayout(drawer)
                 .build();
-//        toggle.syncState();
+        toggle.syncState();
 
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
