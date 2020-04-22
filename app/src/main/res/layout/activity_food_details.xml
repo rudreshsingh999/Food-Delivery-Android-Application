@@ -100,9 +100,10 @@
                             android:layout_weight="9"
                             android:fontFamily="@font/arima_madurai"
                             android:padding="12dp"
-                            android:text="@string/_1000"
+                            android:text="@string/select_item_size"
                             android:textSize="20sp"
-                            android:textStyle="bold"></TextView>
+                            android:textStyle="bold">
+                        </TextView>
 
                         <com.cepheuen.elegantnumberbutton.view.ElegantNumberButton
                             android:id="@+id/number_button"
@@ -134,7 +135,6 @@
                                 android:id = "@+id/radio_small"
                                 android:text = "Small"
                                 android:fontFamily="@font/arima_madurai"
-                                android:checked="true"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content">
 

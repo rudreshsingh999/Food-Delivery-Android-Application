@@ -40,7 +40,7 @@ public class FoodDetails extends AppCompatActivity {
 
     RadioGroup radioFoodSize;
     RadioButton radioFoodButton;
-    String price = "1000";
+    String price = "Select item size";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -118,7 +118,10 @@ public class FoodDetails extends AppCompatActivity {
                 currentFood = dataSnapshot.getValue(Food.class);
                 Picasso.with(getBaseContext()).load(currentFood.getImage()).into(food_image);
                 collapsingToolbarLayout.setTitle(currentFood.getName());
-                food_price.setText(price);
+                if(price.charAt(0)== 'S')
+                    food_price.setText(price);
+                else
+                    food_price.setText('\u20B9' +  price);
                 food_name.setText(currentFood.getName());
                 food_description.setText(currentFood.getDescription());
             }
