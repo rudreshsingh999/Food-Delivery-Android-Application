@@ -30,4 +30,5 @@
     <string name="total">Total : </string>
     <string name="place_order">Place Order</string>
     <string name="select_item_size">Select item size</string>
+    <string name="clear_cart">Clear Cart</string>
 </resources>

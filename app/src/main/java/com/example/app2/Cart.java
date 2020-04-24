@@ -52,7 +52,6 @@ import java.util.Locale;
 public class Cart extends AppCompatActivity implements GoogleApiClient.ConnectionCallbacks,
                 GoogleApiClient.OnConnectionFailedListener, LocationListener {
 
-
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
 
@@ -61,7 +60,7 @@ public class Cart extends AppCompatActivity implements GoogleApiClient.Connectio
 
     TextView txtTotalPrice;
     Button btnPlaceOrder;
-
+    Button btnClearCart;
     List<Order> cart = new ArrayList<>();
     CartAdapter adapter;
 
@@ -112,6 +111,7 @@ public class Cart extends AppCompatActivity implements GoogleApiClient.Connectio
 
         txtTotalPrice = findViewById(R.id.total);
         btnPlaceOrder = findViewById(R.id.btnPlaceOrder);
+        btnClearCart = findViewById(R.id.btnClearCart);
 
         btnPlaceOrder.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -120,7 +120,39 @@ public class Cart extends AppCompatActivity implements GoogleApiClient.Connectio
             }
         });
 
+        btnClearCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clearCart();
+            }
+        });
         loadListFood();
+
+    }
+
+    private void clearCart() {
+        final AlertDialog.Builder alertDialog = new AlertDialog.Builder(Cart.this);
+        alertDialog.setTitle("Clear Cart");
+        alertDialog.setMessage("Are you sure you want to clear cart");
+
+        alertDialog.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                new Database(getBaseContext()).cleanCart();
+                Toast.makeText(Cart.this, "Cart Cleared", Toast.LENGTH_SHORT).show();
+                finish();
+            }
+        });
+
+        alertDialog.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+
+        alertDialog.show();
 
     }
 
