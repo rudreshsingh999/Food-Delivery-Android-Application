@@ -68,7 +68,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull CartViewHolder holder, int position) {
         TextDrawable drawable = TextDrawable.builder()
-                .buildRound(""+ listData.get(position).getQuantity(), Color.TRANSPARENT);
+                .buildRect(""+ listData.get(position).getQuantity(), Color.TRANSPARENT);
         holder.img_cart_count.setImageDrawable(drawable);
 
 
