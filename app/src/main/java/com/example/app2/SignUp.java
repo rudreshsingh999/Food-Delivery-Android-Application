@@ -38,23 +38,41 @@ public class SignUp extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                final String getEmailID = btnmail.getText().toString();
+//                Toast.makeText(SignUp.this, getEmailID, Toast.LENGTH_SHORT).show();
+
                 customer.addValueEventListener(new ValueEventListener() {
+
+
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         if(dataSnapshot.child(btnphone.getText().toString()).exists()) {
-                            Toast.makeText(SignUp.this, "This phone number is already registered.", Toast.LENGTH_SHORT).show();
+
+                                Toast.makeText(SignUp.this, "This phone number is already registered.", Toast.LENGTH_SHORT).show();
+
                         }
                         else {
-                            User user = new User(btnname.getText().toString(), btnpassword.getText().toString(), btnmail.getText().toString());
-                            customer.child(btnphone.getText().toString()).setValue(user);
-                            Toast.makeText(SignUp.this, "You've successfully signed up!", Toast.LENGTH_SHORT).show();
-                            finish();
+                            if(!isEmailValid((getEmailID)))
+                            {
+                                Toast.makeText(SignUp.this, "Invalid email address.", Toast.LENGTH_SHORT).show();
+
+                            }
+                            else {
+                                User user = new User(btnname.getText().toString(), btnpassword.getText().toString(), btnmail.getText().toString());
+                                customer.child(btnphone.getText().toString()).setValue(user);
+                                Toast.makeText(SignUp.this, "You've successfully signed up!", Toast.LENGTH_SHORT).show();
+                                finish();
+                            }
                         }
                     }
 
                     @Override
                     public void onCancelled(@NonNull DatabaseError databaseError) {
 
+                    }
+
+                    boolean isEmailValid(CharSequence email) {
+                        return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
                     }
                 });
             }
