@@ -133,7 +133,7 @@ public class Cart extends AppCompatActivity implements GoogleApiClient.Connectio
     private void clearCart() {
         final AlertDialog.Builder alertDialog = new AlertDialog.Builder(Cart.this);
         alertDialog.setTitle("Clear Cart");
-        alertDialog.setMessage("Are you sure you want to clear cart");
+        alertDialog.setMessage("Are you sure you want to clear cart?");
 
         alertDialog.setPositiveButton("YES", new DialogInterface.OnClickListener() {
             @Override

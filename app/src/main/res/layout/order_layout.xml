@@ -18,7 +18,7 @@
         <LinearLayout
             android:orientation="vertical"
             android:layout_weight="9"
-            android:background="#4d4d4d"
+            android:background="@color/fbutton_color_carrot"
             android:layout_width="0dp"
             android:layout_height="wrap_content">
 
@@ -45,7 +45,7 @@
                 android:textStyle="bold|normal"
                 android:text="#111111"
                 android:layout_gravity="right"
-                android:textColor="@android:color/holo_blue_dark"
+                android:textColor="@color/fbutton_color_midnight_blue"
                 android:layout_marginBottom="3dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
