@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -38,24 +39,16 @@ public class SignUp extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                final String getEmailID = btnmail.getText().toString();
-//                Toast.makeText(SignUp.this, getEmailID, Toast.LENGTH_SHORT).show();
-
                 customer.addValueEventListener(new ValueEventListener() {
-
-
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         if(dataSnapshot.child(btnphone.getText().toString()).exists()) {
-
-                                Toast.makeText(SignUp.this, "This phone number is already registered.", Toast.LENGTH_SHORT).show();
-
+                            Toast.makeText(SignUp.this, "This phone number is registered.", Toast.LENGTH_SHORT).show();
                         }
                         else {
-                            if(!isEmailValid((getEmailID)))
+                            if(!isEmailValid((btnmail.getText().toString())))
                             {
                                 Toast.makeText(SignUp.this, "Invalid email address.", Toast.LENGTH_SHORT).show();
-
                             }
                             else {
                                 User user = new User(btnname.getText().toString(), btnpassword.getText().toString(), btnmail.getText().toString());
@@ -71,9 +64,11 @@ public class SignUp extends AppCompatActivity {
 
                     }
 
-                    boolean isEmailValid(CharSequence email) {
-                        return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
+                    boolean isEmailValid (CharSequence email)
+                    {
+                        return Patterns.EMAIL_ADDRESS.matcher(email).matches();
                     }
+
                 });
             }
         });
