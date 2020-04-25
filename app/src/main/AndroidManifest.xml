@@ -25,6 +25,7 @@
         <activity android:name=".Cart" />
         <activity android:name=".FoodDetails" />
         <activity android:name=".FoodList" />
+        <activity android:name=".PaymentGateway"/>
         <activity
             android:name=".Home"
             android:label="@string/title_activity_home"
