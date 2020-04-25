@@ -50,6 +50,9 @@ public class SignUp extends AppCompatActivity {
                             {
                                 Toast.makeText(SignUp.this, "Invalid email address.", Toast.LENGTH_SHORT).show();
                             }
+                            else if(btnpassword.getText().toString().length() < 8) {
+                                Toast.makeText(SignUp.this, "Password must be minimum 8 characters long", Toast.LENGTH_SHORT).show();
+                            }
                             else {
                                 User user = new User(btnname.getText().toString(), btnpassword.getText().toString(), btnmail.getText().toString());
                                 customer.child(btnphone.getText().toString()).setValue(user);
