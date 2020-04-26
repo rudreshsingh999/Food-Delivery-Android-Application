@@ -67,7 +67,7 @@
 
                 <Button
                     android:id="@+id/btnClearCart"
-                    android:layout_width="184dp"
+                    android:layout_width="175dp"
                     android:layout_height="45dp"
                     android:layout_marginStart="5dp"
                     android:layout_marginBottom="5dp"
@@ -80,7 +80,7 @@
 
                 <Button
                     android:id="@+id/btnPlaceOrder"
-                    android:layout_width="184dp"
+                    android:layout_width="175dp"
                     android:layout_height="45dp"
                     android:layout_marginEnd="5dp"
                     android:layout_marginBottom="5dp"
