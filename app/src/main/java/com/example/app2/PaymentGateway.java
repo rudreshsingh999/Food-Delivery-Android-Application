@@ -40,7 +40,7 @@ public class PaymentGateway extends AppCompatActivity {
                 }else if (TextUtils.isEmpty(amount.getText().toString().trim())){
                     Toast.makeText(PaymentGateway.this," Amount is invalid", Toast.LENGTH_SHORT).show();
                 }else{
-                    payUsingUpi("BiteSize", "kamal.bunkar07@okaxis",
+                    payUsingUpi("BiteSize", "praneetha.vaddamanu@oksbi",
                             note.getText().toString(), amount.getText().toString());
                 }
             }
