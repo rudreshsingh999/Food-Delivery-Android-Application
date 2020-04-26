@@ -53,6 +53,27 @@
                 </RadioButton>
             </RadioGroup>
 
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id = "@+id/rdiCashOnDelivery"
+                    android:text="CashOnDelivery"
+                    android:checked="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                </RadioButton>
+
+                <RadioButton
+                    android:id = "@+id/rdiPayNow"
+                    android:text = "PayNow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                </RadioButton>
+            </RadioGroup>
+
+
         </LinearLayout>
 
     </LinearLayout>

@@ -76,6 +76,7 @@ public class Cart extends AppCompatActivity implements GoogleApiClient.Connectio
     private static int LOCATION_REQUEST_CODE = 9999;
     private static int PLAY_SERVICES_REQUEST = 9997;
 
+    private int check = 0;
     IGoogleService mGoogleMapServices;
     private static double distancek = 0.0;
     @Override
@@ -223,6 +224,8 @@ public class Cart extends AppCompatActivity implements GoogleApiClient.Connectio
 
         RadioButton rdiShipToAddress = order_address.findViewById(R.id.rdiShipToAddress);
         RadioButton rdiHomeAddress = order_address.findViewById(R.id.rdiHomeAddress);
+        RadioButton rdiCashOnDelivery = order_address.findViewById(R.id.rdiCashOnDelivery);
+        RadioButton rdiPayNow = order_address.findViewById(R.id.rdiPayNow);
 
         final Geocoder geocoder;
         geocoder = new Geocoder(this, Locale.getDefault());
@@ -251,6 +254,15 @@ public class Cart extends AppCompatActivity implements GoogleApiClient.Connectio
             }
         });
 
+        rdiPayNow.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked) {
+                    check = 1;
+                }
+            }
+        });
+
         alertDialog.setPositiveButton("YES", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -267,8 +279,10 @@ public class Cart extends AppCompatActivity implements GoogleApiClient.Connectio
 
                 new Database(getBaseContext()).cleanCart();
 
-                Intent payment = new Intent(Cart.this, PaymentGateway.class);
-                startActivity(payment);
+                if(check == 1) {
+                    Intent payment = new Intent(Cart.this, PaymentGateway.class);
+                    startActivity(payment);
+                }
 
                 Toast.makeText(Cart.this, "Order Placed!", Toast.LENGTH_SHORT).show();
                 finish();
