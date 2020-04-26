@@ -85,7 +85,7 @@
             android:fontFamily="@font/montserrat"
             android:gravity="center"
             android:hint="PASSWORD"
-            android:maxLength="8"
+            android:maxLength="15"
             android:inputType="textPassword"
             android:textColor="@android:color/white"
             android:textColorHint="@android:color/white"
@@ -93,7 +93,7 @@
             app:met_textColorHint="@android:color/white"
             android:textCursorDrawable="@android:color/white"
             app:met_floatingLabel="highlight"
-            app:met_maxCharacters="10"
+            app:met_maxCharacters="15"
             app:met_primaryColor="@android:color/white"
             app:met_singleLineEllipsis="true"
             android:textSize="25sp">
