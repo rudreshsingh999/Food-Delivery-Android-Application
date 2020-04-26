@@ -17,6 +17,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.rengwuxian.materialedittext.MaterialEditText;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class SignUp extends AppCompatActivity {
 
     MaterialEditText btnname, btnpassword, btnphone, btnmail;
@@ -31,6 +34,8 @@ public class SignUp extends AppCompatActivity {
         btnphone = (MaterialEditText) findViewById(R.id.edtphone);
         btnmail = (MaterialEditText) findViewById(R.id.edtmail);
         signup = (Button) findViewById(R.id.signUp);
+
+        final String PASSWORD_PATTERN = "((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%*^]).{8,15})"; //1 digit from 0-9, 1 lowercase char, 1 uppercase char, 1 special symbol, length min = 8, max = 20
 
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         final DatabaseReference customer = database.getReference("User");
@@ -50,8 +55,8 @@ public class SignUp extends AppCompatActivity {
                             {
                                 Toast.makeText(SignUp.this, "Invalid email address.", Toast.LENGTH_SHORT).show();
                             }
-                            else if(btnpassword.getText().toString().length() < 8) {
-                                Toast.makeText(SignUp.this, "Password must be minimum 8 characters long", Toast.LENGTH_SHORT).show();
+                            else if(!isPasswordValid(btnpassword.getText().toString())) {
+                                Toast.makeText(SignUp.this, "Invalid password.\nPassword should contain:\n1 digit, 1 lowercase letter, 1 uppercase letter, 1 special symbol\nMinimum length = 8 characters", Toast.LENGTH_LONG).show();
                             }
                             else {
                                 User user = new User(btnname.getText().toString(), btnpassword.getText().toString(), btnmail.getText().toString());
@@ -64,6 +69,15 @@ public class SignUp extends AppCompatActivity {
 
                     @Override
                     public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+
+                    public boolean isPasswordValid (final String password){
+                        Pattern pattern;
+                        Matcher matcher;
+                        pattern = Pattern.compile(PASSWORD_PATTERN);
+                        matcher = pattern.matcher(password);
+                        return matcher.matches();
 
                     }
 
