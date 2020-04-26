@@ -126,7 +126,7 @@ public class PaymentGateway extends AppCompatActivity {
             if (status.equals("success")) {
                 //Code to handle successful transaction here.
                 Toast.makeText(PaymentGateway.this, "Transaction successful.", Toast.LENGTH_SHORT).show();
-                Log.e("UPI", "payment successfull: "+approvalRefNo);
+                Log.e("UPI", "payment successful: "+approvalRefNo);
                 finish();
             }
             else if("Payment cancelled by user.".equals(paymentCancel)) {
