@@ -227,6 +227,8 @@ public class Cart extends AppCompatActivity implements GoogleApiClient.Connectio
         RadioButton rdiCashOnDelivery = order_address.findViewById(R.id.rdiCashOnDelivery);
         RadioButton rdiPayNow = order_address.findViewById(R.id.rdiPayNow);
 
+        final double[] f_lat = {0.0};
+        final double[] f_lng = {0.0};
         final Geocoder geocoder;
         geocoder = new Geocoder(this, Locale.getDefault());
         rdiShipToAddress.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -237,6 +239,8 @@ public class Cart extends AppCompatActivity implements GoogleApiClient.Connectio
                         List <Address> addresses = geocoder.getFromLocation(mLastLocation.getLatitude(), mLastLocation.getLongitude(), 1);
                         String address = addresses.get(0).getAddressLine(0);
                         edtAddress.setText(address);
+                        f_lat[0] = mLastLocation.getLatitude();
+                        f_lng[0] = mLastLocation.getLongitude();
                         distancek = distance(localLat, localLng, mLastLocation.getLatitude(), mLastLocation.getLongitude(), "K");
                         System.out.println(distancek);
                     } catch (IOException e) {
@@ -250,7 +254,9 @@ public class Cart extends AppCompatActivity implements GoogleApiClient.Connectio
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 edtAddress.setText("BITS PILANI HYDERABAD CAMPUS");
-                distancek = 10.345;
+                f_lat[0] = 25.45;
+                f_lng[0] = 81.77;
+                distancek = distance(f_lat[0], f_lng[0], localLat, localLng, "K");
             }
         });
 
@@ -272,7 +278,9 @@ public class Cart extends AppCompatActivity implements GoogleApiClient.Connectio
                         edtAddress.getText().toString(),
                         txtTotalPrice.getText().toString(),
                         cart,
-                        String.valueOf(distancek)
+                        String.valueOf(distancek),
+                        String.valueOf(f_lat[0]),
+                        String.valueOf(f_lng[0])
                 );
 
                 requests.child(String.valueOf(System.currentTimeMillis())).setValue(request);
